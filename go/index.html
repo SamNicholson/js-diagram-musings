@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flowchart</title>
+    <meta name="description" content="Interactive flowchart diagram implemented by GoJS in JavaScript for HTML." />
+    <!-- Copyright 1998-2016 by Northwoods Software Corporation. -->
+    <meta charset="UTF-8">
+    <script src="go-js.js"></script>
+    <script src="workflow-diagram-renderer.js"></script>
+    <script id="code">
+        function init() {
+            WorkFlowDiagram = new WorkFlowDiagram("myDiagramDiv");
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="sample">
+    <h3>GoJS Flowchart</h3>
+    <div style="width:100%; white-space:nowrap;">
+
+    <span style="display: inline-block; vertical-align: top; padding: 5px; width:100%">
+      <div id="myDiagramDiv" style="height: 720px"></div>
+    </span>
+    </div>
+    <div id="SVGArea"></div>
+</div>
+</body>
+</html>

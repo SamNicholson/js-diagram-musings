@@ -1,0 +1,130 @@
+<!DOCTYPE>
+
+<html>
+
+<head>
+    <title>cytoscape-dagre.js demo</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="cytoscape.js"></script>
+
+    <!-- for testing with local version of cytoscape.js -->
+    <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
+
+    <script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js"></script>
+
+    <style>
+        body {
+            font-family: helvetica;
+            font-size: 14px;
+        }
+
+        #cy {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 999;
+        }
+
+        h1 {
+            opacity: 0.5;
+            font-size: 1em;
+        }
+    </style>
+
+    <script>
+        $(function(){
+
+            var cy = window.cy = cytoscape({
+               container: document.getElementById('cy'),
+
+               boxSelectionEnabled: false,
+               autounselectify: true,
+
+               layout: {
+                   name: 'dagre'
+               },
+
+               style: [
+                   {
+                       selector: 'node',
+                       style: {
+                           'shape': 'data(faveShape)',
+                           'content': 'data(text)',
+                           'text-valign': 'center',
+                           'text-opacity': 0.5,
+                           'color': '#fff',
+                           'background-color': 'data(faveColor)',
+                           'width': 'data(width)',
+                           'height': 'data(height)'
+                       }
+                   },
+
+                   {
+                       selector: 'edge',
+                       style: {
+                           'width': 4,
+                           'target-arrow-shape': 'triangle',
+                           'line-color': '#9dbaea',
+                           'target-arrow-color': '#9dbaea',
+                           'curve-style': 'bezier'
+                       }
+                   }
+               ],
+
+               elements: {
+                   nodes: [
+                       { data: { id: 'n0', text: 'nodeo', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n1', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n2', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n3', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n4', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n5', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n6', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n7', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n8', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n9', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n10', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n11', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n12', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n13', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n14', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n15', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } },
+                       { data: { id: 'n16', text: 'some text', faveShape: 'rectangle', faveColor: '#000', width: '100', height: '100' } }
+                   ],
+                   edges: [
+                       { data: { source: 'n0', target: 'n1' } },
+                       { data: { source: 'n0', target: 'n2' } },
+                       { data: { source: 'n1', target: 'n2' } },
+                       { data: { source: 'n1', target: 'n3' } },
+                       { data: { source: 'n4', target: 'n5' } },
+                       { data: { source: 'n4', target: 'n6' } },
+                       { data: { source: 'n6', target: 'n7' } },
+                       { data: { source: 'n6', target: 'n8' } },
+                       { data: { source: 'n8', target: 'n9' } },
+                       { data: { source: 'n8', target: 'n10' } },
+                       { data: { source: 'n11', target: 'n12' } },
+                       { data: { source: 'n12', target: 'n13' } },
+                       { data: { source: 'n13', target: 'n14' } },
+                       { data: { source: 'n13', target: 'n15' } },
+                   ]
+               },
+           });
+
+        });
+    </script>
+</head>
+
+<body>
+<h1>cytoscape-dagre demo</h1>
+
+<div id="cy"></div>
+
+</body>
+
+</html>
